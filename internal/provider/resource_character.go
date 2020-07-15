@@ -201,6 +201,20 @@ func resourceCharacter() *schema.Resource {
 					},
 				},
 			},
+			"spells": {
+				Type:     schema.TypeSet,
+				Optional: true,
+				Elem: &schema.Schema{
+					Type: schema.TypeString,
+				},
+			},
+			"skills": {
+				Type:     schema.TypeMap,
+				Optional: true,
+				Elem: &schema.Schema{
+					Type: schema.TypeInt,
+				},
+			},
 		},
 		CustomizeDiff: customdiff.All(
 			customdiff.ComputedIf("level", diffHasChange("experience_points")),
