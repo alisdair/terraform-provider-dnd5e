@@ -3,6 +3,7 @@ package provider
 import (
 	"errors"
 	"math"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/customdiff"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
@@ -239,6 +240,7 @@ func resourceCharacter() *schema.Resource {
 }
 
 func resourceCharacterRead(d *schema.ResourceData, meta interface{}) error {
+	time.Sleep(10 * time.Second)
 	// This seems weird but we're only updating the computed things
 	return resourceCharacterUpdate(d, meta)
 }
